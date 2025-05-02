@@ -1,54 +1,115 @@
-# React + TypeScript + Vite
+# Klimb Assignment - User Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A clean, responsive React application for managing users with TypeScript. This application allows you to add, edit, search, and delete users with form validation and data persistence.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Management**
+  - Add new users with form validation
+  - Edit existing users
+  - Delete users with confirmation
+  - Search users by email with autocomplete
+  - Display user's full name in search suggestions
 
-## Expanding the ESLint configuration
+- **Form Validation**
+  - Email format validation
+  - Phone number validation (10 digits)
+  - All fields are mandatory
+  - No duplicate emails allowed
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Data Persistence**
+  - User data is saved to localStorage
+  - Data persists between browser sessions
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **Responsive Design**
+  - Works on desktop and mobile devices
+  - Clean, intuitive user interface
+
+## Technologies Used
+
+- **React** - UI library
+- **TypeScript** - Type safety
+- **Formik** - Form handling
+- **Yup** - Form validation
+- **CSS** - Styling
+- **localStorage** - Data persistence
+
+## Project Structure
+
+```
+user-management-app/
+├── src/
+│   ├── components/
+│   │   ├── UserForm.tsx - Form for adding/editing users
+│   │   ├── UserForm.css - Styles for the form
+│   │   ├── UserList.tsx - Component for displaying and searching users
+│   │   └── UserList.css - Styles for the user list
+│   ├── types/
+│   │   └── User.ts - Type definitions
+│   ├── App.tsx - Main application component
+│   ├── App.css - Main application styles
+│   ├── main.tsx - Entry point
+│   └── index.css - Global styles
+├── public/
+│   └── index.html - HTML template
+└── package.json - Dependencies and scripts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Node.js (v14 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+   ```
+   git clone https://github.com/yourusername/klimb-assignment.git
+   cd klimb-assignment
+   ```
+
+2. Install dependencies
+   ```
+   npm install
+   ```
+
+3. Start the development server
+   ```
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+### Adding a User
+1. Fill out the form at the top of the page
+2. All fields are mandatory
+3. Click "Add User"
+
+### Editing a User
+1. Click the "Edit" button next to a user
+2. Modify the user's information in the form
+3. Click "Update User" to save changes or "Cancel" to discard
+
+### Deleting a User
+1. Click the "Delete" button next to a user
+2. Confirm the deletion in the popup dialog
+
+### Searching for Users
+1. Type in the search box
+2. The list will filter as you type
+3. Email suggestions will appear with the user's full name
+
+## Assignment Requirements
+
+This project was created as part of a technical assignment with the following requirements:
+
+- Create a React application with TypeScript
+- Implement add/edit/display/search functionality for users
+- Create a form with validation for email format, phone number, and mandatory fields
+- Prevent duplicate email IDs
+- Implement email search with autocomplete showing user's full name
+- Use a single component for both add and edit user forms
