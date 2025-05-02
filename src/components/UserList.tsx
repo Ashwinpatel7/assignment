@@ -53,7 +53,7 @@ const UserList: React.FC<UserListProps> = ({
   return (
     <div className="user-list-container">
       <div className="user-list-header">
-        <h2>Manage Users</h2>
+        <h2>Manage Users - Klimb Assignment</h2>
         <div className="search-container">
           <div className="search-input-container">
             <input

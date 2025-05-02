@@ -43,8 +43,12 @@ const App: React.FC = () => {
 
   // Update an existing user
   const handleEditUser = (values: User | UserFormData) => {
-    if ('id' in values) {
+    if (editingUser && 'id' in values) {
       setUsers(users.map(user => user.id === values.id ? values as User : user));
+    } else if (editingUser) {
+      // If somehow we lost the ID, we can still update using the editingUser.id
+      const updatedUser = { ...values, id: editingUser.id };
+      setUsers(users.map(user => user.id === editingUser.id ? updatedUser as User : user));
     }
     setEditingUser(null);
   };
@@ -70,7 +74,7 @@ const App: React.FC = () => {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>User Management System</h1>
+        <h1>Klimb Assignment</h1>
       </header>
 
       <main className="app-main">
@@ -101,10 +105,6 @@ const App: React.FC = () => {
           />
         </div>
       </main>
-
-      <footer className="app-footer">
-        <p>&copy; {new Date().getFullYear()} User Management System</p>
-      </footer>
     </div>
   );
 };

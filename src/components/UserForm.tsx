@@ -118,6 +118,7 @@ const UserForm = ({ initialValues, onSubmit, existingEmails, isEdit, onCancel }:
       <Formik
         initialValues={initialFormValues}
         validationSchema={validationSchema}
+        enableReinitialize={true}
         onSubmit={onSubmit}
         validate={(values) => {
           const errors: Partial<Record<keyof UserFormData, string>> = {};
